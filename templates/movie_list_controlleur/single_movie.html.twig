@@ -1,0 +1,10 @@
+
+
+<a href="{{ path('app_film',{'slug' : movie.slug}) }}">
+    <div class="container movie_item container-custom text-center">
+        <img src="/uploads/{{ movie.illustration }}" alt="{{ movie.name }}" class="img-fluid">
+        <div class="middle center">
+            <h5>{{ movie.name }}</h5>
+        </div>
+    </div>
+</a>

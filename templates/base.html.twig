@@ -1,19 +1,140 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Service VOD NetFlux ">
+    <meta name="author" content="Niels MESURE">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+    <title>{% block title %}NetFlux{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+
+    <link href="{{ asset('assets/css/netflux.css') }}" rel="stylesheet">
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{path('app_home')}}">Netflux</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{path('app_movies')}}">Catalogue</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Catégories
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% for category in getCategories() %}
+                            <li><a class="dropdown-item" href="#">{{ category.name }}</a></li>
+
+                            {% endfor %}
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Toutes les catégories</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Mes Films</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <div class="nav_bar_button">
+                        {% if app.user %}
+                            <a href="{{ path('app_account') }}">Mon Compte <small>({{app.user.firstname}})</small></a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
+                        {% else %}
+                            <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('app_register') }}">Inscription</a>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main role="main">
+
+    {% if block('carousel') is defined %}
+        <div id="carouselExampleCaptions" class="carousel slide index_carousel" data-bs-ride="false">
+            <div class="carousel-indicators">
+                {% for key,movie in illustrationHeaders %}
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ key }}" {% if key ==0 %}class="active" {% endif%} aria-current="true" aria-label="Slide 1"></button>
+                {% endfor %}
+            </div>
+            <div class="carousel-inner">
+                {% for key,movie in illustrationHeaders %}
+                <a href="{{ path('app_film',{'slug' : movie.slug}) }}">
+                <div style="background-image: url('/uploads/{{ movie.illustrationHeaders }}'); " class="carousel-item carousel-custom {% if key ==0 %}active{% endif%}" >
+                    <div class="carousel-caption">
+                        <h5>{{ movie.name }}</h5>
+                        <p>{{ movie.subtitle }}</p>
+                    </div>
+                </div>
+                </a>
+                {% endfor %}
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+ {% endif %}
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container-fluid marketing {% if block('carousel') is not defined %}mt-5{% endif %}">
+        {% block content %}
         {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    </div><!-- /.container -->
+
+    <!-- FOOTER -->
+    <footer class="footer-custom ">
+        <p class="mb-1 mt-1">
+            &copy; 2020-2023 Netflux <br/>
+            <small> Le service de VOD 2.0
+            <a href="#">Privacy</a> &middot; <a href="#">Terms</a></small>
+        </p>
+    </footer>
+</main>
+
+</body>
 </html>

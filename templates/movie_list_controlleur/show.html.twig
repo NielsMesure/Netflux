@@ -1,0 +1,52 @@
+
+{% extends 'base.html.twig' %}
+
+
+{% block title %}{{ movie.name }}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col  text-center">
+            <img class="img_films" src="/uploads/{{ movie.illustration }}" alt="{{ movie.name }}">
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a class="btn btn-info mt-4" href="/commentaire/{{ movie.slug }}" role="button">Ajouter un Commentaire</a>
+
+            </div>
+        </div>
+        <div class="col mt-4 mx-auto">
+            <h1>{{ movie.name }}</h1>
+            <p class="fw-bold">{{ movie.subtitle }}</p>
+            <hr>
+            <p>{{ movie.description}}</p>
+            <hr>
+            <h5> Avis des spectateurs </h5>
+
+            <div id="carouselExampleCaptions" class="carousel slide comment-carousel " data-bs-ride="false">
+
+
+                <div class="carousel-inner">
+
+                    {% for key,comment in comments %}
+                        {% if comment.movie == movie.name %}
+                    <div class="carousel-item {% if key ==0 %}active{% endif%} mx-5 px-5 mt-5">
+                            <h5>{{ comment.user }}</h5>
+                            <p>{{ comment.content }}</p>
+                    </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
