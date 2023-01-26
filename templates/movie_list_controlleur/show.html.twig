@@ -19,16 +19,17 @@
             <p class="fw-bold">{{ movie.subtitle }}</p>
             <hr>
             <p>{{ movie.description}}</p>
-            <hr>
-            <h5> Avis des spectateurs </h5>
+
+            {% if comments %}
+            <hr class="mt-1">
+            <h5 class="mt-4"> Avis des spectateurs </h5>
+            {% endif %}
 
             <div id="carouselExampleCaptions" class="carousel slide comment-carousel " data-bs-ride="false">
 
 
                 <div class="carousel-inner">
-
                     {% for key,comment in comments %}
-                        {% if comment.movie == movie.name %}
                     <div class="carousel-item {% if key ==0 %}active{% endif%} mx-5 px-5 mt-5">
                             <h5>{{ comment.user }}</h5>
                             <p>{{ comment.content }}</p>
@@ -41,7 +42,6 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
-                        {% endif %}
                     {% endfor %}
                 </div>
 

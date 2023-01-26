@@ -53,7 +53,7 @@ class MovieListControlleurController extends AbstractController
             'slug'=>$slug
         ]);
 
-        $comment=$this->entityManager->getRepository(Comment::class)->findAll();
+        $comments=$this->entityManager->getRepository(Comment::class)->findBy(["movie" => $movie]);
 
         if (!$movie){
             return $this->redirectToRoute('app_movies');
@@ -61,7 +61,7 @@ class MovieListControlleurController extends AbstractController
 
         return $this->render('movie_list_controlleur/show.html.twig',[
             'movie'=>$movie,
-            'comments'=>$comment
+            'comments'=>$comments
         ]);
     }
 }
