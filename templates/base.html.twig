@@ -85,6 +85,8 @@
 
 <main role="main">
 
+
+
     {% if block('carousel') is defined %}
         <div id="carouselExampleCaptions" class="carousel slide index_carousel" data-bs-ride="false">
             <div class="carousel-indicators">
@@ -117,9 +119,7 @@
 
  {% endif %}
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+
 
     <div class="container-fluid marketing {% if block('carousel') is not defined %}mt-5{% endif %}">
         {% block content %}
