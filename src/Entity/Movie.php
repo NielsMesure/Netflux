@@ -42,6 +42,9 @@ class Movie
     #[ORM\OneToMany(mappedBy: 'movie', targetEntity: Comment::class)]
     private Collection $commentsMovie;
 
+    #[ORM\Column]
+    private ?string $movieLink = null;
+
     public function __toString()
     {
         return $this->getName();
@@ -193,6 +196,19 @@ class Movie
                 $commentsMovie->setMovie(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMovieLink(): ?string
+    {
+        return $this->movieLink;
+    }
+
+    public function setMovieLink(string $movieLink): self
+    {
+        $this->movieLink = $movieLink;
+
 
         return $this;
     }

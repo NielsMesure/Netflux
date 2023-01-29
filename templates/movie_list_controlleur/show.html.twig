@@ -20,6 +20,14 @@
             <hr>
             <p>{{ movie.description}}</p>
 
+
+            <video title="Wildlife" preload="auto" autoplay controls>
+                <source src="/uploads/{{ movie.movieLink }}" type="video/mp4">
+                <p>Wildlife</p>
+            </video>
+
+
+
             {% if comments %}
             <hr class="mt-1">
             <h5 class="mt-4"> Avis des spectateurs </h5>

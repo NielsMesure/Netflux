@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
 
 class MovieCrudController extends AbstractCrudController
 {
@@ -30,8 +31,8 @@ class MovieCrudController extends AbstractCrudController
             ImageField::new('illustration','Affiche')
                 ->setBasePath('uploads/')
                 ->setUploadDir('public/uploads')
-                ->setUploadedFileNamePattern('[randomhash].[extension]')
-                ->setRequired(false),
+                ->setUploadedFileNamePattern('[randomhash].[extension]'),
+
             TextField::new('subtitle','Sous-titre'),
             TextareaField::new('description'),
             BooleanField::new('isBest','Afficher en avant'),
@@ -39,8 +40,15 @@ class MovieCrudController extends AbstractCrudController
             ImageField::new('illustrationHeaders','Bannière')
                 ->setBasePath('uploads/')
                 ->setUploadDir('public/uploads')
+                ->setUploadedFileNamePattern('[randomhash].[extension]'),
+
+
+            ImageField::new('movieLink','film')
+                ->setBasePath('uploads/')
+                ->setUploadDir('public/uploads')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
-                ->setRequired(false),
+
+
 
         ];
     }
