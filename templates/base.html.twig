@@ -16,33 +16,15 @@
     <link href="{{ asset('assets/css/netflux.css') }}" rel="stylesheet">
 
 
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
-
-
     <!-- Custom styles for this template -->
     <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
         <div class="container-fluid">
             <a class="navbar-brand " href="{{path('app_home')}}">
-                <img src="/uploads/netflux.png" alt="logo FRWAY RP" width="150px">
+                <img src="/uploads/netflux.png" alt="Netflux LOGO" width="130px" class="px-2 py-1">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -101,8 +83,8 @@
                 <a href="{{ path('app_film',{'slug' : movie.slug}) }}">
                 <div style="background-image: url('/uploads/{{ movie.illustrationHeaders }}'); " class="carousel-item carousel-custom {% if key ==0 %}active{% endif%}" >
                     <div class="carousel-caption">
-                        <h5>{{ movie.name }}</h5>
-                        <p>{{ movie.subtitle }}</p>
+                        <h5 style="text-transform: uppercase">{{ movie.name }}</h5>
+
                     </div>
                 </div>
                 </a>

@@ -7,7 +7,7 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2 search-color">
             <h3 >Filtrer</h3>
             {{ form(form) }}
         </div>
@@ -15,7 +15,7 @@
             <h3 >Nos Films</h3>
             <div class="row movie-container">
                 {% for movie in movies %}
-                    <div class="col-md-2 padding-custom">
+                    <div class="col-md-2 padding-custom ">
 
                         {% include 'movie_list_controlleur/single_movie.html.twig'%}
                     </div>

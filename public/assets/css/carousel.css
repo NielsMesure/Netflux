@@ -15,7 +15,9 @@ body {
 
 /* Declare heights because of positioning of img element */
 .index_carousel .carousel-item {
+
     height: 32rem;
+
 
 }
 
@@ -23,6 +25,7 @@ body {
 @media (max-width: 1240px) {
     .index_carousel .carousel-item {
         height: 20rem;
+
 
     }
 }
