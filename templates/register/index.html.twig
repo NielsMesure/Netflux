@@ -2,6 +2,19 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Formulaire d'inscription</h1>
-    {{ form(form) }}
+    <h1 style="color: white">Formulaire d'inscription</h1>
+
+    <div class="container" style="width: 50vh; color: white">
+
+    {{ form_start(form) }}
+        {{ form_row(form.firstname,{'attr':{'class':'research-field'}}) }}
+        {{ form_row(form.lastname,{'attr':{'class':'research-field'}}) }}
+        {{ form_row(form.mobilephone,{'attr':{'class':'research-field'}}) }}
+        {{ form_row(form.email,{'attr':{'class':'research-field'}}) }}
+        {{ form_row(form.password,{'attr':{'class':'research-field'}}) }}
+
+        {{ form_row(form.submit, {'attr': {'class': 'custom-submit'}}) }}
+
+    {{ form_end(form) }}
+    </div>
 {% endblock %}

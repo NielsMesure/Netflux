@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "AvenirFont";
+    src: url(AvenirFont.otf)
+}
+
 .navbar{
     background-color: rgb(0, 0, 0);
 }
@@ -139,5 +144,22 @@ body{
 }
 
 .img-custom{
-    filter: drop-shadow(0 0 1rem #443434);
+    filter: drop-shadow(0 0 1.2rem #443434);
+}
+
+.research-field{
+    background-color: #464646;
+    border-color: black;
+    height: 50px;
+
+    font-family: AvenirFont;
+}
+
+.custom-submit{
+    font-family: AvenirFont;
+
+    color: #c5c3c3;
+    background-color: #521515;
+    width: 100%;
+    margin-top: 10px;
 }

@@ -59,12 +59,14 @@ class RegisterType extends AbstractType
                 'first_options'=>[
                     'label'=>'Mot de Passe',
                     'attr'=>[
+                        'class'=>'research-field',
                         'placeholder'=>'Merci de saisir votre Mot de Passe'
                     ]
                 ],
                 'second_options'=>[
                     'label'=>'Confirmez Mot de Passe',
                     'attr'=>[
+                        'class'=>'research-field',
                         'placeholder'=>'Merci de confirmer votre Mot de Passe'
                     ]
                 ],
