@@ -48,6 +48,7 @@ class RegisterType extends AbstractType
             ->add('email',EmailType::class,[
                 'label'=> 'Votre E-mail',
                 'attr'=>[
+
                     'placeholder'=>'E-mail'
                 ]
             ])

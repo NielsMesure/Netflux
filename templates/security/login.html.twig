@@ -3,6 +3,7 @@
 {% block title %}Se connecter - Netflux{% endblock %}
 
 {% block content %}
+<div class="container" style="width: 50vh; color: white; font-family: AvenirFont;">
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -14,11 +15,12 @@
         </div>
     {% endif %}
 
+
     <h1 class="h3 mb-3 font-weight-normal">Connexion à votre espace abonné</h1>
-    <label for="inputEmail">Votre Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" placeholder="Votre adresse email" required autofocus>
-    <label for="inputPassword">Votre Mot de Passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" placeholder="Votre mot de passe" required>
+    <label for="inputEmail"class="pb-1">Votre Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control research-field" autocomplete="email" placeholder="Votre adresse email" required autofocus>
+    <label for="inputPassword" class="pt-3 pb-1">Votre Mot de Passe</label>
+    <input type="password" name="password" id="inputPassword" class="form-control research-field" autocomplete="current-password" placeholder="Votre mot de passe" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
@@ -35,8 +37,9 @@
         </div>
     #}
     <hr>
-    <button class="btn btn-lg btn-primary" type="submit">
+    <button class="btn btn-lg btn-primary custom-submit" type="submit">
         Se connecter
     </button>
 </form>
+    </div>
 {% endblock %}

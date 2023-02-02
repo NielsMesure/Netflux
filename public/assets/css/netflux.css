@@ -151,15 +151,32 @@ body{
     background-color: #464646;
     border-color: black;
     height: 50px;
+    font-family: AvenirFont;
+}
 
+
+
+.custom-font{
     font-family: AvenirFont;
 }
 
 .custom-submit{
     font-family: AvenirFont;
-
+    border-color: black;
     color: #c5c3c3;
     background-color: #521515;
     width: 100%;
     margin-top: 10px;
+}
+.register-custom{
+    padding-top: 20px;
+    width: 50vh;
+    color: white
+}
+
+
+@media (max-width: 490px ){
+    .register-custom{
+        width: 90%;
+    }
 }

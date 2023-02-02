@@ -4,7 +4,11 @@
 {% block content %}
     <h1 style="color: white">Formulaire d'inscription</h1>
 
-    <div class="container" style="width: 50vh; color: white">
+    <div class="container register-custom" >
+
+        {% if notification %}
+            <div class="alert alert-info">{{ notification }}</div>
+        {% endif %}
 
     {{ form_start(form) }}
         {{ form_row(form.firstname,{'attr':{'class':'research-field'}}) }}
@@ -12,7 +16,7 @@
         {{ form_row(form.mobilephone,{'attr':{'class':'research-field'}}) }}
         {{ form_row(form.email,{'attr':{'class':'research-field'}}) }}
         {{ form_row(form.password,{'attr':{'class':'research-field'}}) }}
-
+        <hr>
         {{ form_row(form.submit, {'attr': {'class': 'custom-submit'}}) }}
 
     {{ form_end(form) }}

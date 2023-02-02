@@ -32,10 +32,18 @@ class RegisterController extends AbstractController
             $user->setPassword($password);
             $this->entityManager->persist($user);
             $this->entityManager->flush();
+            $notification = "Compte créé.";
+        }
+
+        else if($form->isSubmitted() && !($form->isValid())){
+            $notification = "Verifiez votre saisie";
+        }else{
+            $notification = '';
         }
 
         return $this->render('register/index.html.twig',[
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'notification'=>$notification
         ]);
     }
 }

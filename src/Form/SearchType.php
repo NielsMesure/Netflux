@@ -19,14 +19,21 @@ class SearchType extends AbstractType
         $builder
             ->add('string',TextType::class,[
                 'label'=>false,
-                'required' => false
+                'required' => false,
+                'attr'=>[
+                    'class'=>'research-field',
+                    'placeholder'=>'Rechercher'
+                ]
+
             ])
             ->add('categories',EntityType::class,[
                 'label' => false,
                 'required'=>false,
                 'class'=>Category::class,
                 'multiple'=>true,
-                'expanded'=>true
+                'expanded'=>true,
+
+
             ])
             ->add('submit',SubmitType::class,[
                 'label'=>'Rechercher',
