@@ -149,11 +149,30 @@ body{
 
 .research-field{
     background-color: #464646;
+
     border-color: black;
     height: 50px;
-    font-family: AvenirFont;
+
 }
 
+.research-field:hover{
+    background-color: #3d3d3d;
+
+}
+
+
+
+.research-field:read-only{
+    background-color: rgba(91, 91, 91, 0.76);
+
+}
+
+
+.research-field:focus{
+    background-color: #3b3b3b;
+    border-color: black;
+
+}
 
 
 .custom-font{

@@ -19,21 +19,32 @@ class ChangePasswordType extends AbstractType
         $builder
             ->add('firstname', TextType::class,[
                 'disabled'=>true,
-                'label'=>'Prénom'
+                'label'=>'Prénom',
+                'attr'=>[
+                    'class'=>'research-field',
+                ]
+
             ])
             ->add('lastname', TextType::class,[
                 'disabled'=>true,
-                'label'=>'Nom'
+                'label'=>'Nom',
+                'attr'=>[
+                    'class'=>'research-field',
+                ]
             ])
             ->add('email',EmailType::class,[
                 'disabled'=>true,
-                'label'=>'Adresse Email'
+                'label'=>'Adresse Email',
+                'attr'=>[
+                    'class'=>'research-field',
+                ]
             ])
             ->add('old_password',PasswordType::class,[
                 'label'=>'Mot de Passe actuel',
                 'mapped'=>false,
                 'attr'=>[
-                    'placeholder'=>'Saisissez votre mot de passe'
+                    'placeholder'=>'Saisissez votre mot de passe',
+                    'class'=>'research-field',
                 ]
             ])
 
@@ -46,18 +57,24 @@ class ChangePasswordType extends AbstractType
                 'first_options'=>[
                     'label'=>'Mot de Passe',
                     'attr'=>[
-                        'placeholder'=>'Merci de saisir votre nouveau mot de passe'
+                        'placeholder'=>'Merci de saisir votre nouveau mot de passe',
+                        'class'=>'research-field',
                     ]
                 ],
                 'second_options'=>[
                     'label'=>'Confirmation nouveau mot de passe',
                     'attr'=>[
-                        'placeholder'=>'Merci de confirmer votre nouveau Mot de Passe'
+                        'placeholder'=>'Merci de confirmer votre nouveau Mot de Passe',
+                        'class'=>'research-field',
                     ]
                 ],
             ])
             ->add('submit',SubmitType::class,[
-                'label'=>"Mettre à jour"
+                'label'=>"Mettre à jour",
+                'attr'=>[
+                    'placeholder'=>'Merci de confirmer votre nouveau Mot de Passe',
+                    'class'=>'custom-submit',
+                ]
             ]);
     }
 
