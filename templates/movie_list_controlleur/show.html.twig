@@ -7,12 +7,39 @@
 {% block content %}
 
     <div class="row">
-        <div class="col  text-center">
+        <div class="col mt-4 text-center">
             <img class="img_films" src="/uploads/{{ movie.illustration }}" alt="{{ movie.name }}">
             <div class="d-grid gap-2 col-6 mx-auto">
-                <a class="btn btn-info mt-4" href="/commentaire/{{ movie.slug }}" role="button">Ajouter un Commentaire</a>
-
+                <a class="btn mt-4 custom-submit" href="/commentaire/{{ movie.slug }}" role="button">Ajouter un Commentaire</a>
             </div>
+                {% if comments %}
+
+                    <h5 class="mt-5 mb-0"> Avis des spectateurs </h5>
+                    <hr style="color: white">
+                {% endif %}
+
+                <div id="commentCarousel" class="carousel slide comment-carousel " data-bs-ride="false">
+                    <div class="carousel-inner">
+                        {% for key,comment in comments %}
+                            <div class="carousel-item {% if key ==0 %}active{% endif%} text-left">
+                                <h5>{{ comment.user }}</h5>
+                                <p>{{ comment.content }}</p>
+                            </div>
+                            {% if key > 0 %}
+                            <button class="carousel-control-prev" type="button" data-bs-target="#commentCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#commentCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                            {% endif%}
+                        {% endfor %}
+                    </div>
+
+                </div>
+
         </div>
         <div class="col mt-4 mx-auto">
             <h1>{{ movie.name }}</h1>
@@ -25,35 +52,6 @@
                 <source src="/uploads/{{ movie.movieLink }}" type="video/mp4">
                 <p>{{ movie.name }}</p>
             </video>
-
-
-
-            {% if comments %}
-            <hr class="mt-1">
-            <h5 class="mt-4"> Avis des spectateurs </h5>
-            {% endif %}
-
-            <div id="carouselExampleCaptions" class="carousel slide comment-carousel " data-bs-ride="false">
-
-
-                <div class="carousel-inner">
-                    {% for key,comment in comments %}
-                    <div class="carousel-item {% if key ==0 %}active{% endif%} mx-5 px-5 mt-5">
-                            <h5>{{ comment.user }}</h5>
-                            <p>{{ comment.content }}</p>
-                    </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                    {% endfor %}
-                </div>
-
-            </div>
         </div>
     </div>
 

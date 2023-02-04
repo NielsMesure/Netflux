@@ -37,7 +37,8 @@ class CommentController extends AbstractController
             $entityManager->persist($comment);
 
             $entityManager->flush();
-            $this->redirectToRoute('app_film',['slug' => $slug]);
+            return $this->redirectToRoute('app_film',['slug' => $slug]);
+
         }
 
 
@@ -48,6 +49,7 @@ class CommentController extends AbstractController
 
         return $this->render('comment/index.html.twig',[
             'form' => $form->createView()
+
         ]);
     }
 }
