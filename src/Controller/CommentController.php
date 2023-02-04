@@ -37,6 +37,7 @@ class CommentController extends AbstractController
             $entityManager->persist($comment);
 
             $entityManager->flush();
+            $this->redirectToRoute('app_film',['slug' => $slug]);
         }
 
 

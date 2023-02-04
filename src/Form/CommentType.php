@@ -17,10 +17,16 @@ class CommentType extends AbstractType
 
         $builder
             ->add('content',TextType::class,[
-                'label'=>"Commentaire"
+                'label'=>"Commentaire",
+                'attr'=>[
+                    'class'=>'research-field',
+                ]
             ])
             ->add('submit',SubmitType::class,[
-                'label'=>"Ajouter le Commentaire"
+                'label'=>"Ajouter le Commentaire",
+                'attr'=>[
+                    'class'=>'custom-submit',
+                ]
             ]);
     }
 
