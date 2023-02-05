@@ -44,8 +44,7 @@ body{
     opacity: 1;
     width: 100%;
     height: auto;
-    aspect-ratio: 4/6;
-
+    aspect-ratio: 2/3;
     transition: .5s ease;
     backface-visibility: hidden;
 }
@@ -137,13 +136,7 @@ body{
 
 
 
-.search-color{
-    border: 3px solid #1e1e1e;
-    border-radius: 12px;
-    font-size: 20px;
-    font-weight: bold;
-    outline-offset: 0.5em;
-}
+
 
 .img-custom{
     filter: drop-shadow(0 0 1.2rem #443434);
@@ -173,6 +166,7 @@ body{
 .research-field:focus{
     background-color: #3b3b3b;
     border-color: black;
+    color: grey;
 
 }
 
@@ -181,18 +175,36 @@ body{
     font-family: AvenirFont;
 }
 
+.form-check-input{
+    background-color: #464646;
+}
+.form-check-input:checked{
+    background-color: #520f0f;
+    border-color: black;
+}
+
+.custom-check:checked{
+    background-color: black;
+
+}
+
 .custom-submit{
-    font-family: AvenirFont;
     border-color: black;
     color: #c5c3c3;
     background-color: #521515;
     width: 100%;
     margin-top: 10px;
 }
+
+.custom-submit:hover{
+    color: #c5c3c3;
+    background-color: #3b1111;
+
+}
+
 .register-custom{
     padding-top: 20px;
     width: 50vh;
-    color: white
 }
 
 

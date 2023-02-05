@@ -27,18 +27,19 @@ class SearchType extends AbstractType
 
             ])
             ->add('categories',EntityType::class,[
+
                 'label' => false,
                 'required'=>false,
                 'class'=>Category::class,
                 'multiple'=>true,
                 'expanded'=>true,
 
-
             ])
+
             ->add('submit',SubmitType::class,[
                 'label'=>'Rechercher',
                 'attr'=>[
-                    'class'=>'btn btn-info '
+                    'class'=>'btn custom-submit'
                 ]
             ])
         ;
