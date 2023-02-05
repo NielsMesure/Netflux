@@ -22,6 +22,7 @@ body{
     background-color: #181818;
     bottom: 0;
     width: 100%;
+    z-index: 1;
 }
 
 .movie_item h5
@@ -43,6 +44,8 @@ body{
     opacity: 1;
     width: 100%;
     height: auto;
+    aspect-ratio: 4/6;
+
     transition: .5s ease;
     backface-visibility: hidden;
 }
@@ -88,11 +91,14 @@ body{
 
 .comment-carousel .carousel-control-prev-icon {
 
-    background-image: url(previous-icon.png)}
+    background-image: url(previous-icon.png);
+    z-index: 0;
+}
 
 .comment-carousel .carousel-control-next-icon {
 
-    background-image: url(next-icon.png)
+    background-image: url(next-icon.png);
+    z-index: 0;
 }
 
 

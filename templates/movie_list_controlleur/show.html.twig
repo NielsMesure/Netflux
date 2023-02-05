@@ -7,8 +7,8 @@
 {% block content %}
 
     <div class="row">
-        <div class="col mt-4 text-center">
-            <img class="img_films" src="/uploads/{{ movie.illustration }}" alt="{{ movie.name }}">
+        <div class="col-md-5 mt-4 text-center">
+            <img class="img_films img-fluid" src="/uploads/{{ movie.illustration }}" alt="{{ movie.name }}">
             <div class="d-grid gap-2 col-6 mx-auto">
                 <a class="btn mt-4 custom-submit" href="/commentaire/{{ movie.slug }}" role="button">Ajouter un Commentaire</a>
             </div>
@@ -41,14 +41,14 @@
                 </div>
 
         </div>
-        <div class="col mt-4 mx-auto">
+        <div class="col-md-7 mt-4 mx-auto">
             <h1>{{ movie.name }}</h1>
             <p class="fw-bold">{{ movie.subtitle }}</p>
             <hr>
             <p>{{ movie.description}}</p>
 
 
-            <video title="{{ movie.name }}" preload="auto" autoplay controls width="90%">
+            <video title="{{ movie.name }}" preload="auto" autoplay controls width="100%" poster="/uploads/{{ movie.illustrationHeaders }}">
                 <source src="/uploads/{{ movie.movieLink }}" type="video/mp4">
                 <p>{{ movie.name }}</p>
             </video>
