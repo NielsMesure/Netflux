@@ -15,7 +15,7 @@ class Comment
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 2500)]
     private ?string $content = null;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]

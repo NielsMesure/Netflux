@@ -37,6 +37,7 @@ body{
 .movie_item
 {
     margin-top: 20px;
+
 }
 
 .movie_item img
@@ -78,6 +79,7 @@ body{
     padding-right: 5px;
     padding-left: 5px;
 }
+
 @media ( max-width: 777px)
 {
     .movie_item img{
@@ -125,13 +127,17 @@ body{
     margin-bottom: 125px;
 }
 .img_films{
-    width: 400px;
+    width: 300px;
 }
 
-@media (max-width: 860px ) {
-    .img_films{
-        width: 300px;
-    }
+
+.comment-hr{
+    width: 80%;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+
+
 }
 
 

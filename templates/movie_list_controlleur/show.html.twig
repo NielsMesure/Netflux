@@ -7,23 +7,27 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-md-5 mt-4 text-center">
-            <img class="img_films img-fluid" src="/uploads/{{ movie.illustration }}" alt="{{ movie.name }}">
+        <div class="col-md-5  text-center" style="padding-top: 125px">
+            <img class="img_films img-fluid" src="/uploads/{{ movie.illustration }}" alt="{{ movie.name }}" >
             <div class="d-grid gap-2 col-6 mx-auto">
                 <a class="btn mt-4 custom-submit" href="/commentaire/{{ movie.slug }}" role="button">Ajouter un Commentaire</a>
             </div>
                 {% if comments %}
 
                     <h5 class="mt-5 mb-0"> Avis des spectateurs </h5>
-                    <hr style="color: white">
+                    <hr class="comment-hr">
                 {% endif %}
 
                 <div id="commentCarousel" class="carousel slide comment-carousel " data-bs-ride="false">
                     <div class="carousel-inner">
                         {% for key,comment in comments %}
                             <div class="carousel-item {% if key ==0 %}active{% endif%} text-left">
+                                <div class="container" style="width: 80%">
+
                                 <h5>{{ comment.user }}</h5>
-                                <p>{{ comment.content }}</p>
+                                <p class="text-wrap ">{{ comment.content }}</p>
+
+                                </div>
                             </div>
                             {% if key > 0 %}
                             <button class="carousel-control-prev" type="button" data-bs-target="#commentCarousel" data-bs-slide="prev">

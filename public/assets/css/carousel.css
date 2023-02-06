@@ -1,6 +1,3 @@
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
 
 body {
     padding-top: 3rem;
@@ -9,11 +6,6 @@ body {
 }
 
 
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-
-/* Declare heights because of positioning of img element */
 .index_carousel .carousel-item {
 
     height: 60vh;
@@ -35,39 +27,6 @@ body {
 
     background-size: cover;
     background-position: top;
-}
-
-
-/* Featurettes
-------------------------- */
-
-.featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -.05rem;
-}
-
-
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
-
-@media (min-width: 40em) {
-
-    .featurette-heading {
-        font-size: 50px;
-    }
-}
-
-@media (min-width: 62em) {
-    .featurette-heading {
-        margin-top: 7rem;
-    }
 }
 
 
