@@ -152,9 +152,16 @@ body{
 
 .research-field:hover{
     background-color: #3d3d3d;
-
 }
 
+
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1001px #1b1b1b inset !important;
+    -webkit-text-fill-color: #888888 !important;
+}
 
 
 .research-field:read-only{
