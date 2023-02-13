@@ -33,9 +33,9 @@ class MovieCrudController extends AbstractCrudController
                 ->setUploadDir('public/uploads')
                 ->setUploadedFileNamePattern('[randomhash].[extension]'),
 
-            TextField::new('subtitle','Sous-titre'),
+            TextField::new('subtitle','Date de Sortie'),
             TextareaField::new('description'),
-            BooleanField::new('isBest','Afficher en avant'),
+            BooleanField::new('isBest','Afficher en avant'), 
             AssociationField::new('category','Catégories'),
             ImageField::new('illustrationHeaders','Bannière')
                 ->setBasePath('uploads/')

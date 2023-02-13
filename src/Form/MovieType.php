@@ -19,9 +19,7 @@ class MovieType extends AbstractType
             ->add('description')
             ->add('isBest')
             ->add('illustrationHeaders')
-            ->add('movieLink'[
-
-                ])
+            ->add('movieLink')
             ->add('category')
         ;
     }

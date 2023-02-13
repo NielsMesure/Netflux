@@ -46,6 +46,9 @@ class Movie
     #[ORM\Column]
     private ?string $movieLink = null;
 
+    #[ORM\OneToMany(mappedBy: 'movie', targetEntity: Like::class)]
+    private Collection $likes;
+
     public function __toString()
     {
         return $this->getName();
@@ -55,6 +58,8 @@ class Movie
     {
         $this->category = new ArrayCollection();
         $this->commentsMovie = new ArrayCollection();
+        $this->users = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -210,6 +215,62 @@ class Movie
     {
         $this->movieLink = $movieLink;
 
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Like>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Like $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes->add($like);
+            $like->setMovie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Like $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getMovie() === $this) {
+                $like->setMovie(null);
+            }
+        }
 
         return $this;
     }

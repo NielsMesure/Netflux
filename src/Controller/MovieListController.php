@@ -27,41 +27,40 @@ class MovieListController extends AbstractController
     public function index(Request $request): Response
     {
         $search = new Search();
-        $form = $this->createForm(SearchType::class,$search);
+        $form = $this->createForm(SearchType::class, $search);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
 
-            $movies=$this->entityManager->getRepository(Movie::class)->findWithSearch($search);
-        }else{
-            $movies=$this->entityManager->getRepository(Movie::class)->findAll();
+            $movies = $this->entityManager->getRepository(Movie::class)->findWithSearch($search);
+        } else {
+            $movies = $this->entityManager->getRepository(Movie::class)->findAll();
         }
 
-        return $this->render('movie_list_controlleur/index.html.twig',[
-            'movies'=>$movies,
-            'form'=> $form->createView()
+        return $this->render('movie_list_controlleur/index.html.twig', [
+            'movies' => $movies,
+            'form' => $form->createView()
         ]);
     }
-
 
 
     #[Route('/film/{slug}', name: 'app_film')]
     public function show($slug): Response
     {
 
-        $movie=$this->entityManager->getRepository(Movie::class)->findOneBy([
-            'slug'=>$slug
+        $movie = $this->entityManager->getRepository(Movie::class)->findOneBy([
+            'slug' => $slug
         ]);
 
-        $comments=$this->entityManager->getRepository(Comment::class)->findBy(["movie" => $movie]);
+        $comments = $this->entityManager->getRepository(Comment::class)->findBy(["movie" => $movie]);
 
-        if (!$movie){
+        if (!$movie) {
             return $this->redirectToRoute('app_movies');
         }
 
-        return $this->render('movie_list_controlleur/show.html.twig',[
-            'movie'=>$movie,
-            'comments'=>$comments
+        return $this->render('movie_list_controlleur/show.html.twig', [
+            'movie' => $movie,
+            'comments' => $comments
         ]);
     }
 }

@@ -39,6 +39,7 @@ class RegisterType extends AbstractType
                     'placeholder'=>'Nom'
                 ]
             ])
+
             ->add('mobilephone',NumberType::class,[
                 'label'=> 'Votre Numéro de Téléphone',
                 'attr'=>[
