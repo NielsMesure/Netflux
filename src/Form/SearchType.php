@@ -50,7 +50,7 @@ class SearchType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Search::class,
-            'method'=>'GET',
+            'method'=>'POST', //mettre en Get si l'on veut avoir le jeton
             'crsf_protection'=>false,
         ]);
     }

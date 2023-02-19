@@ -9,12 +9,14 @@
     <title>{% block title %}NetFlux{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
+    <script src="https://kit.fontawesome.com/f8e94527ab.js" crossorigin="anonymous"></script>
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('icons/favicon.ico') }}" rel="icon">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.js.map') }}"></script>
     <link href="{{ asset('assets/css/netflux.css') }}" rel="stylesheet">
+    <script src="{{ asset('assets/js/netflux.js') }}"></script>
 
 
     <!-- Custom styles for this template -->
@@ -34,21 +36,6 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{path('app_movies')}}">Catalogue</a>
-                    </li>
-
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Catégories
-                        </a>
-
-                         <ul class="dropdown-menu">
-                             {% for category in getCategories() %}
-                            <li><a class="dropdown-item" href="{{path('app_movies')}}">{{ category.name }}</a></li>
-
-                            {% endfor %}
-
-                        </ul>
                     </li>
 
                 </ul>

@@ -21,6 +21,8 @@ class Category
     #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'category')]
     private Collection $movies;
 
+
+
     public function __construct()
     {
         $this->movies = new ArrayCollection();
@@ -29,7 +31,9 @@ class Category
     public function __toString()
     {
         return $this->getName();
+
     }
+
 
     public function getId(): ?int
     {

@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Classes\Search;
+use App\Classes\SearchCategory;
 use App\Entity\Movie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -70,7 +71,6 @@ class MovieRepository extends ServiceEntityRepository
 
         return $query->getQuery()->getResult();
     }
-
 
 
 //    /**

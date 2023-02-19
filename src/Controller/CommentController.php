@@ -35,7 +35,6 @@ class CommentController extends AbstractController
             $comment->setUser($user);
             $comment->setMovie($movie);
             $entityManager->persist($comment);
-
             $entityManager->flush();
             return $this->redirectToRoute('app_film',['slug' => $slug]);
 
