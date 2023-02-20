@@ -55,13 +55,17 @@
                 {% if is_granted("ROLE_USER") %}
                     {% for favories in movie.likes  %}
                         {% if favories.user.id == app.user.id %}
-                            <a class="like-custom" href="{{ path('app_remove_favorites', {'slug': movie.slug}) }}"><i class="fas fa-heart"></i></a>
+
+                            <a class="like-custom" href="/favoris/remove/{{ movie.slug }}/{{ favories.id }}"><i class="fas fa-heart"></i></a>
                         {% endif %}
                         {% else %}
                             <a class="like-custom" href="{{ path('app_add_favorites', {'slug': movie.slug}) }}"><i  class="far fa-heart"></i></a>
 
                     {% endfor %}
                 {% endif %}
+
+
+
 
 
 

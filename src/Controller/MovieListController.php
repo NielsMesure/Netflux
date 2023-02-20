@@ -95,13 +95,17 @@ class MovieListController extends AbstractController
         return $this->redirectToRoute('app_film',['slug' => $slug]);
     }
 
-    #[Route('/favoris/remove/{slug}', name: 'app_remove_favorites')]
-    public function removeFavorites(Like $likeMovie,$slug,EntityManagerInterface $entityManager): Response
+    #[Route('/favoris/remove/{slug}/{id}', name: 'app_remove_favorites')]
+    public function removeFavorites(int $id ,$slug,EntityManagerInterface $entityManager): Response
     {
+        $favorites = $entityManager->getRepository(Like::class)->find($id);
 
-
-        $likeMovie->removeLike($this->getUser());
-        $entityManager->persist($likeMovie);
+        $movie=$entityManager->getRepository(Movie::class)->findOneBy([
+            'slug'=>$slug
+        ]);
+        $movie->removeLike($favorites);
+        $entityManager->persist($movie);
+        $entityManager->remove($favorites);
         $entityManager->flush();
 
         return $this->redirectToRoute('app_film',['slug' => $slug]);
