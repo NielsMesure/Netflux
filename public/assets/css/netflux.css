@@ -213,6 +213,7 @@ select:-webkit-autofill {
 .custom-submit:hover{
     color: #c5c3c3;
     background-color: #3b1111;
+    border-color: black;
 
 }
 
@@ -230,5 +231,12 @@ select:-webkit-autofill {
 
         width: 90%;
     }
+}
+
+.color-custom{
+    color: #6e3232;
+}
+.color-custom:hover{
+    color: #b6b6b6;
 }
 
