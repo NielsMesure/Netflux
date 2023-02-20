@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 
+use App\Classes\Mail;
 use App\Entity\Movie;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
