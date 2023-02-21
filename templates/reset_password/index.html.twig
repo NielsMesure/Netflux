@@ -4,6 +4,9 @@
 
 {% block content %}
     <div class="container register-custom">
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
         <form method="post">
             <div class="container register-custom">
 
