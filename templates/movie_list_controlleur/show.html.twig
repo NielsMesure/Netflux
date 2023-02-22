@@ -52,16 +52,23 @@
             <h1>{{ movie.name }}</h1>
             <p class="fw-bold">{{ movie.subtitle }}</p>
             <div class="like-custom mb-2">
+
+                {# possibilité de le faire avec Ajax #}
                 {% if is_granted("ROLE_USER") %}
+                    {% set isFavorite = false %}
                     {% for favories in movie.likes  %}
                         {% if favories.user.id == app.user.id %}
+                            {% set isFavorite = true %}
                             <a class="like-custom" href="/favoris/remove/{{ movie.slug }}/{{ favories.id }}"><i class="fas fa-heart"></i></a>
-                        {% endif %}
-                        {% else %}
-                            <a class="like-custom" href="{{ path('app_add_favorites', {'slug': movie.slug}) }}"><i  class="far fa-heart"></i></a>
 
+                        {% endif %}
                     {% endfor %}
+                    {% if not isFavorite %}
+                        <a class="like-custom" href="{{ path('app_add_favorites', {'slug': movie.slug}) }}"><i  class="far fa-heart"></i></a>
+                    {% endif %}
+
                 {% endif %}
+
 
 
 

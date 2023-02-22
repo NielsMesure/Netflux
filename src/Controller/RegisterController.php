@@ -41,7 +41,7 @@ class RegisterController extends AbstractController
                 $this->entityManager->flush();
 
                 $mail = new Mail();
-                $content = "Bonjour".$user->getFirstname()."<br/>Bienvenue sur Netflux, la première plateforme de VOD 2.0.<br/>Votre inscription à bien été prise en compte";
+                $content = "Bonjour ".$user->getFirstname()."<br/>Bienvenue sur Netflux, la première plateforme de VOD 2.0. Votre inscription à bien été prise en compte";
                 $mail->send($user->getEmail(),$user->getFirstname(),'Bienvenue sur NETFLUX, la plateforme de VOD 2.0',$content);
 
                 $notification = 'Compte crée';

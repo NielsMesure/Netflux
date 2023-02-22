@@ -57,7 +57,7 @@
 <main role="main">
 
 
-
+    {% if not is_granted("ROLE_BAN") %}
     {% if block('carousel') is defined %}
         <div id="carouselExampleCaptions" class="carousel slide index_carousel" data-bs-ride="false">
             <div class="carousel-indicators">
@@ -89,12 +89,19 @@
         </div>
 
  {% endif %}
-
+    {% endif %}
 
 
     <div class="container-fluid mb-5 {% if block('carousel') is not defined %}mt-5{% endif %}">
-        {% block content %}
-        {% endblock %}
+
+        {% if is_granted("ROLE_BAN")%}
+            <h1 class="text-center mt-5 pt-5">Vous êtes Bannis</h1>
+        {% else %}
+            {% block content %}
+            {% endblock %}
+        {% endif %}
+
+
     </div><!-- /.container -->
 
     <!-- FOOTER -->

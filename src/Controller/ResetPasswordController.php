@@ -48,12 +48,13 @@ class ResetPasswordController extends AbstractController
 
                 // 2 : Envoyer un email à l'utilisateur avec un lien lui permettant de mettre à jour son mot de passe.
 
-                $url =$this->generateUrl('app_update_password',[
+
+                $url = $this->generateUrl('app_update_password',[
                     'token'=>$reset_password->getToken()
                 ]);
 
                 $content='Bonjour '.$user->getFirstname()."<br/> Votre demande de réinitialisation de mot de passe à été prise en Compte.<br/><br/>";
-                $content .= "Merci de bien vouloir cliquer sur le lien suivant afin de <a href='.$url.'> modifier votre mot de passe.</a>";
+                $content .= "Merci de bien vouloir cliquer sur le lien suivant afin de <a href='http://127.0.0.1:8000$url'> modifier votre mot de passe.</a>";
                 $mail = new Mail();
                 $mail->send($user->getEmail(),$user->getFirstname().''.$user->getLastname(),'Réinitialiser votre mot de passe sur la Boutique Francaise',$content);
                 $this->addFlash('notice','Vous allez recevoir un mail afin de réinitialiser votre Mot de passe.');
@@ -71,6 +72,7 @@ class ResetPasswordController extends AbstractController
     public function update($token, Request $request, UserPasswordHasherInterface $encoder)
     {
         $reset_password=$this->entityManager->getRepository(ResetPassword::class)->findOneByToken($token);
+
 
         if (!$reset_password){
             return $this->redirectToRoute('app_reset_password');
@@ -95,6 +97,7 @@ class ResetPasswordController extends AbstractController
                 $reset_password->getUser()->setPassword($password);
                 $this->entityManager->flush();
                 $this->addFlash('notice', 'Votre mot de passe à été mis a jour.');
+
                 return $this->redirectToRoute('app_login');
             }
 
