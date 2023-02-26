@@ -18,9 +18,6 @@
     <link href="{{ asset('assets/css/netflux.css') }}" rel="stylesheet">
     <script src="{{ asset('assets/js/netflux.js') }}"></script>
 
-
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">
 </head>
 <body class=" custom-font" >
 <header>
@@ -37,6 +34,13 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{path('app_movies')}}">Catalogue</a>
                     </li>
+
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{path('admin')}}">Interface Admin</a>
+                        </li>
+                    {% endif %}
+
 
                 </ul>
 
@@ -108,8 +112,7 @@
     <footer class="footer-custom ">
         <p class="mb-1 mt-1">
             &copy; 2020-2023 Netflux <br/>
-            <small> Le service de VOD 2.0
-            <a href="#">Privacy</a> &middot; <a href="#">Terms</a></small>
+            <small> Le service de VOD 2.0</small>
         </p>
     </footer>
 </main>

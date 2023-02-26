@@ -56,7 +56,7 @@ class ResetPasswordController extends AbstractController
                 $content='Bonjour '.$user->getFirstname()."<br/> Votre demande de réinitialisation de mot de passe à été prise en Compte.<br/><br/>";
                 $content .= "Merci de bien vouloir cliquer sur le lien suivant afin de <a href='http://127.0.0.1:8000$url'> modifier votre mot de passe.</a>";
                 $mail = new Mail();
-                $mail->send($user->getEmail(),$user->getFirstname().''.$user->getLastname(),'Réinitialiser votre mot de passe sur la Boutique Francaise',$content);
+                $mail->send($user->getEmail(),$user->getFirstname().''.$user->getLastname(),'Réinitialiser votre mot de passe NETFLUX',$content);
                 $this->addFlash('notice','Vous allez recevoir un mail afin de réinitialiser votre Mot de passe.');
             }else{
                 $this->addFlash('notice','Cette adresse e-mail est inconnue');

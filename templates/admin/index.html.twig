@@ -1,3 +1,10 @@
 {# templates/admin/index.html.twig #}
 
 {% extends '@EasyAdmin/page/content.html.twig' %}
+
+
+{% block content_title %}
+    <a class="btn" href="{{ path('app_home') }}">Retourner à la page Principale </a>
+{% endblock %}
+
+

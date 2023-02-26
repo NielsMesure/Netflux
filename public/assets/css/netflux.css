@@ -3,17 +3,52 @@
     src: url(AvenirFont.otf)
 }
 
+body{
+    color: #ffffff;
+    background-color: black;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.index_carousel .carousel-item {
+
+    height: 60vh;
+
+
+}
+
+@media (max-width: 1150px) {
+    .index_carousel .carousel-item {
+        height: 50vh;
+
+
+    }
+}
+
+
+.index_carousel .carousel-custom{
+
+    background-size: cover;
+    background-position: top;
+}
+
+
+
+
+
 .navbar{
     background-color: rgb(0, 0, 0);
 }
-body{
-    color: #ffffff !important;
-    background-color: black;
-}
+
 
 .nav_bar_button, .nav_bar_button a
 {
     color: white;
+}
+
+.nav_bar_button:hover
+{
+    color: #d7d4d4;
 }
 
 .footer-custom
@@ -103,16 +138,11 @@ body{
     z-index: 0;
 }
 
-
-
-
 .container-custom
 {
     position: relative;
     text-align: center;
 }
-
-
 
 .center
 {
@@ -240,3 +270,9 @@ select:-webkit-autofill {
     color: #b6b6b6;
 }
 
+.movie_illustration{
+    max-height: 400px;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}

@@ -12,7 +12,7 @@ use mysql_xdevapi\CollectionRemove;
 class Movie
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue] //autoIncrément
+    #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 

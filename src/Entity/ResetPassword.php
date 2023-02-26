@@ -15,7 +15,7 @@ class ResetPassword
     private ?int $id = null;
 
     #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(onDelete:"CASCADE")]
     private ?User $user = null;
 
     #[ORM\Column(length: 255)]

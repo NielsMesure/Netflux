@@ -45,6 +45,7 @@ class RegisterController extends AbstractController
                 $mail->send($user->getEmail(),$user->getFirstname(),'Bienvenue sur NETFLUX, la plateforme de VOD 2.0',$content);
 
                 $notification = 'Compte crée';
+                return $this->redirectToRoute('app_login');
 
             } else{
                 $notification = "L'email que vous avez renseigné existe déjà ";
