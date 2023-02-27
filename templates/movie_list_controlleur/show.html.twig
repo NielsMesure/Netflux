@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-md-5  text-center mt-4" >
-            <img class="img_films img-fluid" src="/uploads/{{ movie.illustration }}" alt="{{ movie.name }}">
+            <img class="img_films img-fluid" src="/uploads/illustrations/{{ movie.illustration }}" alt="{{ movie.name }}">
             <div class="d-grid gap-2 col-6 mx-auto">
                 <a class="btn mt-4 custom-submit" href="/commentaire/{{ movie.slug }}" role="button">Ajouter un Commentaire</a>
             </div>
@@ -79,14 +79,14 @@
 
 
             <video title="{{ movie.name }}" preload="auto" autoplay controls width="100%"
-                   poster="/uploads/{{ movie.illustrationHeaders }}">
-                <source src="/uploads/{{ movie.movieLink }}" type="video/mp4">
+                   poster="/uploads/illustrations/{{ movie.illustrationHeaders }}">
+                <source src="/uploads/movies/{{ movie.movieLink }}" type="video/mp4">
                 <p>{{ movie.name }}</p>
 
                 <track default
                        kind="captions"
                        srclang="fr"
-                       src="/uploads/Blade_Runner.vtt">
+                       src="/uploads/subtitles/{{ movie.subtitles }}">
 
             </video>
         </div>

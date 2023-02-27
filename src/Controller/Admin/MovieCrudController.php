@@ -29,24 +29,38 @@ class MovieCrudController extends AbstractCrudController
             SlugField::new('slug')
                 ->setTargetFieldName('name'),
             ImageField::new('illustration','Affiche')
-                ->setBasePath('uploads/')
-                ->setUploadDir('public/uploads')
-                ->setUploadedFileNamePattern('[randomhash].[extension]'),
+                ->setBasePath('uploads/illustrations/')
+                ->setUploadDir('public/uploads/illustrations')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setSortable(false)
+                ->setFormTypeOption('required' ,false),
 
             TextField::new('subtitle','Date de Sortie'),
             TextareaField::new('description'),
             BooleanField::new('isBest','Afficher en avant'), 
             AssociationField::new('category','Catégories'),
             ImageField::new('illustrationHeaders','Bannière')
-                ->setBasePath('uploads/')
-                ->setUploadDir('public/uploads')
-                ->setUploadedFileNamePattern('[randomhash].[extension]'),
+                ->setBasePath('uploads/banners/')
+                ->setUploadDir('public/uploads/banners')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setSortable(false)
+                ->setFormTypeOption('required' ,false),
+
 
 
             ImageField::new('movieLink','film')
-                ->setBasePath('uploads/')
-                ->setUploadDir('public/uploads')
+                ->setBasePath('uploads/movies/')
+                ->setUploadDir('public/uploads/movies')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setSortable(false)
+                ->setFormTypeOption('required' ,false),
+
+            ImageField::new('subtitles','Sous-Titres')
+                ->setBasePath('uploads/subtitles/')
+                ->setUploadDir('public/uploads/subtitles')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setSortable(false)
+                ->setFormTypeOption('required' ,false),
 
 
 

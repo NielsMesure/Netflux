@@ -49,6 +49,9 @@ class Movie
     #[ORM\OneToMany(mappedBy: 'movie', targetEntity: Like::class)]
     private Collection $likes;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Subtitles = null;
+
     public function __toString()
     {
         return $this->getName();
@@ -271,6 +274,18 @@ class Movie
                 $like->setMovie(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSubtitles(): ?string
+    {
+        return $this->Subtitles;
+    }
+
+    public function setSubtitles(?string $Subtitles): self
+    {
+        $this->Subtitles = $Subtitles;
 
         return $this;
     }

@@ -72,7 +72,7 @@
             <div class="carousel-inner">
                 {% for key,movie in illustrationHeaders %}
                 <a href="{{ path('app_film',{'slug' : movie.slug}) }}">
-                <div style="background-image: url('/uploads/{{ movie.illustrationHeaders }}'); " class="carousel-item carousel-custom {% if key ==0 %}active{% endif%}" >
+                <div style="background-image: url('/uploads/banners/{{ movie.illustrationHeaders }}'); " class="carousel-item carousel-custom {% if key ==0 %}active{% endif%}" >
                     <div class="carousel-caption">
                         <h5 style="text-transform: uppercase">{{ movie.name }}</h5>
 
