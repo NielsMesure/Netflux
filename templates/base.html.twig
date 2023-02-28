@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" >
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,37 +19,43 @@
     <script src="{{ asset('assets/js/netflux.js') }}"></script>
 
 </head>
-<body class=" custom-font" >
+<body class=" custom-font">
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top  custom-font">
         <div class="container-fluid">
-            <a class="navbar-brand " href="{{path('app_home')}}">
+            <a class="navbar-brand " href="{{ path('app_home') }}">
                 <img src="/uploads/netflux.png" alt="Netflux LOGO" width="130px" class="px-2 py-1">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{path('app_movies')}}">Catalogue</a>
+                        <a class="nav-link" aria-current="page" href="{{ path('app_movies') }}">Catalogue</a>
                     </li>
 
                     {% if is_granted("ROLE_ADMIN") %}
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{path('admin')}}">Interface Admin</a>
+                            <a class="nav-link" aria-current="page" href="{{ path('admin') }}">Interface Admin</a>
                         </li>
                     {% endif %}
-
-
                 </ul>
 
                 <form class="d-flex" role="search">
-                    <div class="nav_bar_button ">
+                    <div class="nav_bar_button mb-2">
                         {% if app.user %}
-                            <a href="{{ path('app_account') }}">Mon Compte <small>({{app.user.firstname}})</small></a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
+                            <a class="btn custom-submit" style="width: auto" href="{{ path('app_account') }}">Mon Compte
+                                <small>({{ app.user.firstname }})</small></a> <a class="btn custom-submit"
+                                                                                 style="width: auto"
+                                                                                 href="{{ path('app_logout') }}">Déconnexion</a>
                         {% else %}
-                            <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('app_register') }}">Inscription</a>
+                            <a class="btn custom-submit" style="width: auto"
+                               href="{{ path('app_login') }}">Connexion</a> <a class="btn custom-submit"
+                                                                               style="width: auto"
+                                                                               href="{{ path('app_register') }}">Inscription</a>
                         {% endif %}
                     </div>
                 </form>
@@ -62,43 +68,48 @@
 
 
     {% if not is_granted("ROLE_BAN") %}
-    {% if block('carousel') is defined %}
-        <div id="carouselExampleCaptions" class="carousel slide index_carousel" data-bs-ride="false">
-            <div class="carousel-indicators">
-                {% for key,movie in illustrationHeaders %}
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ key }}" {% if key ==0 %}class="active" {% endif%} aria-current="true" aria-label="Slide 1"></button>
-                {% endfor %}
-            </div>
-            <div class="carousel-inner">
-                {% for key,movie in illustrationHeaders %}
-                <a href="{{ path('app_film',{'slug' : movie.slug}) }}">
-                <div style="background-image: url('/uploads/banners/{{ movie.illustrationHeaders }}'); " class="carousel-item carousel-custom {% if key ==0 %}active{% endif%}" >
-                    <div class="carousel-caption">
-                        <h5 style="text-transform: uppercase">{{ movie.name }}</h5>
-
-                    </div>
+        {% if block('carousel') is defined %}
+            <div id="carouselExampleCaptions" class="carousel slide index_carousel" data-bs-ride="false">
+                <div class="carousel-indicators">
+                    {% for key,movie in illustrationHeaders %}
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ key }}"
+                                {% if key ==0 %}class="active" {% endif %} aria-current="true"
+                                aria-label="Slide 1"></button>
+                    {% endfor %}
                 </div>
-                </a>
-                {% endfor %}
+                <div class="carousel-inner">
+                    {% for key,movie in illustrationHeaders %}
+                        <a href="{{ path('app_film',{'slug' : movie.slug}) }}">
+                            <div style="background-image: url('/uploads/banners/{{ movie.illustrationHeaders }}'); "
+                                 class="carousel-item carousel-custom {% if key ==0 %}active{% endif %}">
+                                <div class="carousel-caption">
+                                    <h5 style="text-transform: uppercase">{{ movie.name }}</h5>
 
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
 
- {% endif %}
+        {% endif %}
     {% endif %}
 
 
     <div class="container-fluid mb-5 {% if block('carousel') is not defined %}mt-5{% endif %}">
 
-        {% if is_granted("ROLE_BAN")%}
+        {% if is_granted("ROLE_BAN") %}
             <h1 class="text-center mt-5 pt-5">Vous êtes Bannis</h1>
         {% else %}
             {% block content %}
