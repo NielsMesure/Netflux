@@ -8,6 +8,11 @@
 /vendor/
 ###< symfony/framework-bundle ###
 /public/uploads/**/*.mp4
+/public/uploads/**/*.jpg
+/public/uploads/**/*.png
+/public/uploads/**/*.webp
+/public/uploads/*.vtt
+/public/uploads/*.jpg
 
 ###> phpunit/phpunit ###
 /phpunit.xml
